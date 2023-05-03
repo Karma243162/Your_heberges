@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="" id="first-page"> 
+    <div id="first-page-left">
+        <h1>Tout ce dont vous avez besoin pour créer un site web </h1>
+        <p class="mt-3">Jusqu'à <span>- 50 % </span>sur nos plans d’hébergement avec le code <a href="#"><span>%YOUR_HEBERGE%</span></a></p>
+
+        <p id="first-page-price"><span>2.99€</span>/mois</p>
+        
+        <p style="text-transform: uppercase;">+ 1 mois totalement <span> gratuite</span> !!</p>
+     
+        <button>PROFITER DE L OFFRE</button>
+        <p style="margin-top: 10px;">Garantie de remboursement de 30 jours</p>
+    </div>
+
+    <div id="first-page-right">
+        <img src="/yourheberge/public/images/presentation-page-1.jpg" alt="">
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+

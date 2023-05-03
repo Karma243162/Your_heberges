@@ -1,0 +1,75 @@
+
+#nav {
+    background-color: rgb(255, 255, 255);
+}
+
+#nav a {
+    color: #000000;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#first-page {
+     margin-top: 80px;
+width: 100%;
+height: 800px;
+
+}
+
+#first-page h1{
+    font-family: sans-serif;
+    width: 650px;
+    font-size: 40px;
+    font-weight:bold;
+    color: #ec2079;
+}
+
+#first-page p {
+    color: #ec2079;
+    font-size: 30px;
+}
+
+#first-page p span {
+    color: #7a0d3d;
+}
+
+#first-page #first-page-left{
+ 
+    width: 40%;
+    height: 100%;
+    margin-left: 8%;
+}
+
+#first-page #first-page-right {
+    position: absolute;
+    top: 20%;
+    right: 50px;
+    width: 50%;
+    height: 800px;
+
+    margin-left: 1200px;
+}
+
+#first-page-price span{
+    font-size: 50px;
+}
+
+#first-page-price {
+    margin-top: 20px;
+}
+
+#first-page button {
+    margin-top: 25px;
+background-color: #ec2079;
+border: none;
+padding: 10px;
+color: #fff;
+height: 95px;
+width: 500px;
+transition: ease 0.5s;
+}
+
+#first-page button:hover {
+    transform: scale(0.95);
+}

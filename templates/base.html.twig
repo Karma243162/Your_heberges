@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block stylesheets %}
+	<!-- Bootstrap CSS -->
+	<link href="https://bootswatch.com/5/lux/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/yourheberge/public/Assets/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	{% endblock %}
+	<title>
+		{% block title %}
+		{% endblock %}
+	</title>
+</head>
+
+<body class="">
+
+
+
+	<nav id="nav" class="navbar navbar-expand-lg ">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{{path('index')}}"><img style="max-width: 150px;"
+					src="/yourheberge/public/images/logo_your_heberge.png"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+				aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarColor01">
+				<ul class="navbar-nav me-auto">
+
+
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+							aria-haspopup="true" aria-expanded="false">Hébergement</a>
+						<div class="rounded dropdown-menu">
+							<a class="dropdown-item" href="{{path('web-hebergement')}}">Hébergement Web</a>
+							<a class="dropdown-item" href="{{path('cloud-hebergement')}}">Hébergement Cloud </a>
+							<a class="dropdown-item" href="{{path('wordpress-hebergement')}}">Hébergement WordPress</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+							aria-haspopup="true" aria-expanded="false">VPS</a>
+						<div class="rounded dropdown-menu">
+							<a class="dropdown-item" href="#">VPS LINUX</a>
+							<a class="dropdown-item" href="#">VPS WINDOWS </a>
+							<a class="dropdown-item" href="#">VPS MINECRAFT</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+							aria-haspopup="true" aria-expanded="false">Nom de domaine</a>
+						<div class="rounded dropdown-menu">
+							<a class="dropdown-item" href="#">Domaine Disponible</a>
+							<a class="dropdown-item" href="#">Transfert de nom de domaine </a>
+
+						</div>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="{{path('contact')}}">Contact <span class="sr-only"></span></a>
+					</li>
+
+				</ul>
+				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_MOD') %}
+			
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Administration
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="{{path('liste-contacts')}}">Liste contacts</a>
+                                        </li>
+                                       
+										<li>
+                                            <a class="dropdown-item" href="{{path('liste-contacts')}}">Gestion Hebergement</a>
+                                        </li>
+
+										<li>
+                                            <a class="dropdown-item" href="{{path('liste-contacts')}}">Gestion VPS</a>
+                                        </li>
+                                    </ul>
+                                </li>
+			{% endif %}
+
+				{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+				<li class="nav-item">
+					<a class="nav-link " href="{{path('app_login')}}">Se connecter</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="{{path('app_register')}}">S'inscrire</a>
+				</li>
+				{% else %}
+
+				<li class="nav-item">
+					<a class="nav-link " href="{{path('app_logout')}}"> {{app.user.email}} 	
+						<i class="bi bi-x-circle-fill "></i></a>
+				
+				</li>
+
+				
+				{% endif %}
+
+		
+
+
+
+
+
+
+
+
+				{# <form class="d-flex">
+					<input class="form-control me-sm-2" type="text" placeholder="Search">
+					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+				</form> #}
+			</div>
+		</div>
+	</nav>
+	{% for message in app.flashes('notice') %}
+	<h2 class="alert alert-warning text-center mt-4 mb-4" role="alert">
+		{{ message }}
+	</h2>
+	{% endfor %}
+
+</body>
+
+</html>
+</nav>{% block body %}{% endblock %}{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+	crossorigin="anonymous"></script>{% endblock %}</body>
+
+</html>
