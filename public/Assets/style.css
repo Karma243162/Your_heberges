@@ -73,3 +73,20 @@ transition: ease 0.5s;
 #first-page button:hover {
     transform: scale(0.95);
 }
+
+
+
+/* page web heberge */
+
+
+#container-web-card { 
+  
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#card-web {
+    font-size: 20px;
+}
+
