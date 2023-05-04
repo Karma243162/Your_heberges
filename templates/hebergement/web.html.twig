@@ -12,29 +12,38 @@
 {% block body %}
 
 
-<img style="display:block  ; margin-left: auto; margin-right: auto; width: 800px; height: 533px" src="/yourheberge/public/images/back-web.png">
-<h2 style="margin-bottom: 20px;">Nos Web-hebergement : </h2>
-<div id="container-web-card">
-    
+<img style="display:block  ; margin-left: auto; margin-right: auto; width: 950px; height: 600px" src="/yourheberge/public/images/back-web.png">
+<h2 style="text-align:center;margin-top: 100px ;margin-bottom: 100px; margin-left: 70px">Nos Web-hebergement : </h2>
 
+<div  id="container-web-card">
 {% for i in webHeberge %}
-<div id="king" class="d-flex">
-<div class="card " style="width: 20rem; height: 280px">
-    <div id="card-web d-flex" class="card-body">
+
+<div class="card " style="width: 20rem; height: 240px; margin-bottom: 150px; ">
+    <div id="card-web d-flex flex-wrap" class="card-body">
       <h5 class="text-center card-title">Option {{i.name}}</h5>
       <ul >
           <li>prix : {{i.price}} €</li>
           <li>Stockage : {{i.stockage}} GO (SSD)</li>
-          <li>Compte sous-domaine : </li>
+          <li>Compte sous-domaine : 5</li>
           <li>Mail : {{i.mail}}</li>
           <li>Livraison : 60s</li>
       </ul>
       <a href="#" class="text-center btn btn-primary">Commander</a>
          </div>
         </div>
-    </div>
+   
+
 
 {% endfor %}
+   </div>
+<ul id="icon-page-web">
+    <li><img src="/yourheberge/public/images/icon-heberge-web/myadmin.png" alt=""></li>
+    <li><img src="/yourheberge/public/images/icon-heberge-web/MySQL.png" alt=""></li>
+    <li><img src="/yourheberge/public/images/icon-heberge-web/php.png" alt=""></li>
+</ul>
+
+<h2 style="text-align: center; margin-top: 85px">Les Avantages :</h4>
+
 
 {% endblock %}
 

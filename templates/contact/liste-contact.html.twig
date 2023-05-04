@@ -28,8 +28,10 @@
 									<td>{{ contact.nom | capitalize }}</td>
 									<td>{{ contact.sujet | capitalize }}</td>
                                     <td>{{ contact.email | lower }}</td>
-                                    <td>{{ contact.dateEnvoie | date("d-m-Y à H:i:s") }}</td>
+                                    <td>{{ contact.dateEnvoie | date("d-m-Y à H:i:s") }}<button>Repondre</button> <button>rejeter</button></td> 
+								
 								</tr>
+								
 							{% endfor %}
 						</tbody>
 					</table>

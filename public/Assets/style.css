@@ -82,6 +82,7 @@ transition: ease 0.5s;
 #container-web-card { 
   
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 
 }
@@ -90,3 +91,16 @@ transition: ease 0.5s;
     font-size: 20px;
 }
 
+#icon-page-web {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#icon-page-web li{
+    list-style: none;
+}
+
+#icon-page-web li img {
+    max-width: 150px;
+}
