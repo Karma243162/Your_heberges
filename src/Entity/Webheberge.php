@@ -34,9 +34,8 @@ class Webheberge
     #[ORM\Column]
     private ?float $price = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $processeur = null;
-
+    #[ORM\Column]
+    private ?int $proc = null;
 
     public function getId(): ?int
     {
@@ -127,18 +126,15 @@ class Webheberge
         return $this;
     }
 
-    public function getProcesseur(): ?string
+    public function getProc(): ?int
     {
-        return $this->processeur;
+        return $this->proc;
     }
 
-    public function setProcesseur(string $processeur): self
+    public function setProc(int $proc): self
     {
-        $this->processeur = $processeur;
+        $this->proc = $proc;
 
         return $this;
     }
-
-
-    
 }
