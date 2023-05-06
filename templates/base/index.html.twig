@@ -13,7 +13,12 @@
 
 <div class="" id="first-page"> 
     <div id="first-page-left">
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
         <h1>Tout ce dont vous avez besoin pour créer un site web </h1>
+        {% else %}
+        <h1>Tout ce dont vous avez besoin pour créer un site web {{app.user.name}} </h1>
+
+        {% endif %}
         <p class="mt-3">Jusqu'à <span>- 50 % </span>sur nos plans d’hébergement avec le code <a href="#"><span>%YOUR_HEBERGE%</span></a></p>
 
         <p id="first-page-price"><span>2.99€</span>/mois</p>

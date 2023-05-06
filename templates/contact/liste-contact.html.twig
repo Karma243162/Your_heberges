@@ -28,7 +28,8 @@
 									<td>{{ contact.nom | capitalize }}</td>
 									<td>{{ contact.sujet | capitalize }}</td>
                                     <td>{{ contact.email | lower }}</td>
-                                    <td>{{ contact.dateEnvoie | date("d-m-Y à H:i:s") }}<button>Repondre</button> <button>rejeter</button></td> 
+                                    <td>{{ contact.dateEnvoie | date("d-m-Y à H:i:s") }}<button>Repondre</button> 
+										<a href="{{path('suppContact',{'id':contact.id})}}"><button>rejeter</button></a></td> 
 								
 								</tr>
 								

@@ -15,8 +15,9 @@
 <h1 class="text-center">ADMIN WEB</h1>
 
 <h3 style="margin-top:150px">Vos hebergement web dispo : </h3>
-
+<a href="{{path('Ajout-web')}}"class="m-1 text-center btn btn-success">Ajouter un hebergement web</a>
 <div style="margin-top:150px" id="container-web-card">
+  
     {% for i in webHeberge %}
     
     <div class="card " style="width: 20rem; height: 240px; margin-bottom: 150px; ">
@@ -28,11 +29,13 @@
               <li>Compte sous-domaine : 5</li>
               <li>Mail : {{i.mail}}</li>
               <li>Livraison : 60s</li>
+              <li>En stock : {{i.stock}}</li>
           </ul>
      
              </div>
              <a href="{{path('gestion-web-modif',{id:i.id})}}" class="text-center btn btn-primary">Modifier</a>
-             <a href="#" class=" text-center btn btn-danger">supprimer</a>
+             <a href="{{path('suppWeb',{'id':i.id})}}" class=" text-center btn btn-danger">supprimer</a>
+             
             </div>
        
     

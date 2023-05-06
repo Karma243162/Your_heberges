@@ -62,4 +62,22 @@ class ContactController extends AbstractController
             'contacts' => $contacts
         ]);
     }
+
+    #[Route('/private-supp-contact/{id}', name: 'suppContact')]
+    public function suppCat(Request $request, EntityManagerInterface $entityManagerInterface): Response
+    {
+        $id = $request->get('id');
+        $repoContact = $entityManagerInterface->getRepository(Contact::class);
+        $contactDelete = $repoContact->find($id);
+        
+        
+        $entityManagerInterface->remove($contactDelete);
+        $entityManagerInterface->flush();
+
+        $this->addFlash('notice','Contact supprimé');
+        return $this->redirectToRoute('liste-contacts');
+            
+        
+
+    }
 }

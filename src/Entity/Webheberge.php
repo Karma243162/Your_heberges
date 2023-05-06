@@ -37,6 +37,9 @@ class Webheberge
     #[ORM\Column(length: 255)]
     private ?string $processeur = null;
 
+    #[ORM\Column]
+    private ?int $stock = null;
+
 
     public function getId(): ?int
     {
@@ -135,6 +138,18 @@ class Webheberge
     public function setProcesseur(string $processeur): self
     {
         $this->processeur = $processeur;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }
