@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\WebhebergeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: WebhebergeRepository::class)]
@@ -39,6 +41,14 @@ class Webheberge
 
     #[ORM\Column]
     private ?int $stock = null;
+
+    #[ORM\OneToMany(mappedBy: 'webheberge', targetEntity: Ajouts::class)]
+    private Collection $ajouts;
+
+    public function __construct()
+    {
+        $this->ajouts = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -150,6 +160,36 @@ class Webheberge
     public function setStock(int $stock): self
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ajouts>
+     */
+    public function getAjouts(): Collection
+    {
+        return $this->ajouts;
+    }
+
+    public function addAjout(Ajouts $ajout): self
+    {
+        if (!$this->ajouts->contains($ajout)) {
+            $this->ajouts->add($ajout);
+            $ajout->setWebheberge($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAjout(Ajouts $ajout): self
+    {
+        if ($this->ajouts->removeElement($ajout)) {
+            // set the owning side to null (unless already changed)
+            if ($ajout->getWebheberge() === $this) {
+                $ajout->setWebheberge(null);
+            }
+        }
 
         return $this;
     }

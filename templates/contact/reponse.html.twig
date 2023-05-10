@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}Reponse{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">Reponse</h1>
+
+{% for i in contacts %}
+<h2 class="text-center text-primary mt-4 pt-4  fw-bold">Message du client {{i.nom}} : </h2>
+
+    <div class="bg-dark w-100 p-3 h-25 d-inline-block position-absolute">
+        <h3 class="text-center  text-white ">{{i.message}}</h3>
+        
+    </div>
+
+
+{% endfor %}
+
+{% endblock %} 

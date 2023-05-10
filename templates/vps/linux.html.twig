@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+
+{% endblock %}
+
+{% block body %}
+
+
+
+    <div id="top-vps">
+<img  style="display:block ;margin-left: auto; margin-right: auto; width: 100%; height: 800px" src="/yourheberge/public/images/vps/vps.jpeg">
+</div>
+<h2 style="text-align:center;margin-top: 100px ;margin-bottom: 100px; margin-left: 70px">Nos Vps-hebergement : </h2>
+
+<div  id="container-web-card">
+{% for i in vps %}
+
+<div class="card " style="width: 20rem; height: 240px; margin-bottom: 150px; ">
+    <div id="card-web d-flex flex-wrap" class="card-body">
+      <h5 class="text-center card-title">Option {{i.name}}</h5>
+      <ul >
+          <li>Prix : {{i.prix}}0 €</li>
+          <li>{{i.processeur}}</li>
+          <li>Stockage : {{i.stockage}} GO (SSD)</li>
+          <li>Livraison : 60s</li>
+          <li>En stock : 5</li>
+      </ul>
+      <a href="{{path('ajoutPanier', {'id':i.id})}}" class="text-center btn btn-primary">Commander</a>
+         </div>
+        </div>
+   
+
+
+{% endfor %}
+   </div>
+<ul id="icon-page-web">
+    <li><img src="/yourheberge/public/images/vps/icon/centos.png" alt=""></li>
+    <li><img src="/yourheberge/public/images/vps/icon/debian.png" alt=""></li>
+    <li><img src="/yourheberge/public/images/vps/icon/ubuntu.png" alt=""></li>
+</ul>
+
+<h2 style="text-align: center; margin-top: 85px">Les Avantages :</h4>
+
+    <div style="width: 100%;" class="mt-5"></div>
+        <ul class="mt-3 d-flex justify-content-around">
+            <li class="list-unstyled class">
+                <img class="mb-3 rounded mx-auto d-block" style="max-width:110px" src="/yourheberge/public/images/avantage/flash.svg" alt="">
+                <h3 class="text-center">Fluidité</h3>
+               <p style="max-width: 350px;" class="text-center">Grâce a notre réseau, optez pour la meilleure fluidité et taux de chargement de vos site web !</p>
+            </li>
+           
+            <li class="list-unstyled class">
+                <img class="mb-3 rounded mx-auto d-block" style="max-width:110px" src="/yourheberge/public/images/avantage/shield.svg" alt="">
+                <h3 class="text-center">Sécurité</h3>
+                <p style="max-width: 350px;" class="text-center">Peut importe la solution que vous achetez, nous fournissons des SSL gratuitement !</p>
+            </li>
+            
+            <li class=" list-unstyled class">
+                <img class="mb-3 rounded mx-auto d-block" style="max-width:110px" src="/yourheberge/public/images/avantage/startup.svg" alt="">
+                <h3 class="text-center">DNS</h3>
+                <p style="max-width: 350px;" class="text-center">Si vous possédez un nom de domaine ailleurs, la connectivité DNS ce fais en moins de 15 min !</p>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
+

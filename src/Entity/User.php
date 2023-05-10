@@ -35,6 +35,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Panier $panier = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -144,6 +147,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getPanier(): ?panier
+    {
+        return $this->panier;
+    }
+
+    public function setPanier(?panier $panier): self
+    {
+        $this->panier = $panier;
 
         return $this;
     }

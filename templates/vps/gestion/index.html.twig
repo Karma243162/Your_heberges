@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+
+{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center">Admin VPS  </h1>
+
+<div class="d-flex justify-content-around" >
+
+<a style="text-decoration:none;" href="{{path('gestion-vps-linux')}}"><div class="card" style="width: 25rem;height: 500px; margin-top: 100px" id="card-admin">
+   <h3 class="text-center mt-5">gestion VPS Linux</h1>
+  </div>
+</a>
+  <div  class="card" style="width: 25rem;height: 500px; margin-top: 100px" id="card-admin">
+    <h3 class="text-center mt-5">gestion Vps Windows</h1>
+   </div>
+   <div  class="card" style="width: 25rem;height: 500px; margin-top: 100px" id="card-admin">
+    <h3 class="text-center mt-5">gestion Vps Minecraft</h1>
+   </div>
+
+  </div>
+{% endblock %}
+

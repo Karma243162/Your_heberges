@@ -80,4 +80,16 @@ class ContactController extends AbstractController
         
 
     }
+
+    #[Route('/private-reponse-contact/{id}', name: 'reponse-contact')]  // /base est l’URL de la page, name est le nom de la route
+    public function ReponseContact(Request $request,EntityManagerInterface $emi): Response { 
+        $id = $request->get('id');  
+        $repoContact = $emi->getRepository(Contact::class);
+        $contacts = $repoContact->findAll($id);
+        return $this->render('contact/reponse.html.twig', [ // render est la fonction qui va chercher le fichier TWIG pour l’afficher
+            'contacts' => $contacts, 
+
+
+        ]);
+    }
 }

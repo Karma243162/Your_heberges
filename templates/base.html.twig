@@ -18,7 +18,7 @@
 	</title>
 </head>
 
-<body class="">
+<body>
 
 
 
@@ -37,7 +37,7 @@
 
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+						<a id="element" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
 							aria-haspopup="true" aria-expanded="false">Hébergement</a>
 						<div class="rounded dropdown-menu">
 							<a class="dropdown-item" href="{{path('web-hebergement')}}">Hébergement Web</a>
@@ -50,7 +50,7 @@
 						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
 							aria-haspopup="true" aria-expanded="false">VPS</a>
 						<div class="rounded dropdown-menu">
-							<a class="dropdown-item" href="#">VPS LINUX</a>
+							<a class="dropdown-item" href="{{path('app_vps_linux')}}">VPS LINUX</a>
 							<a class="dropdown-item" href="#">VPS WINDOWS </a>
 							<a class="dropdown-item" href="#">VPS MINECRAFT</a>
 						</div>
@@ -59,7 +59,7 @@
 						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
 							aria-haspopup="true" aria-expanded="false">Nom de domaine</a>
 						<div class="rounded dropdown-menu">
-							<a class="dropdown-item" href="#">Domaine Disponible</a>
+							<a class="dropdown-item" href="{{'listepanier'}}">Domaine Disponible</a>
 							<a class="dropdown-item" href="#">Transfert de nom de domaine </a>
 
 						</div>
@@ -68,6 +68,8 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="{{path('contact')}}">Contact <span class="sr-only"></span></a>
 					</li>
+
+				
 
 				</ul>
 				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_MOD') %}
@@ -88,14 +90,17 @@
                                             <a class="dropdown-item" href="{{path('gestion-hebergement')}}">Gestion Hebergement</a>
                                         </li>
 
+										
+
 										<li>
-                                            <a class="dropdown-item" href="{{path('liste-contacts')}}">Gestion VPS</a>
+                                            <a class="dropdown-item" href="{{path('gestion-vps')}}">Gestion VPS</a>
                                         </li>
                                     </ul>
                                 </li>
 			{% endif %}
 
 				{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+				
 				<li class="nav-item list-unstyled class">
 					<a class="nav-link " href="{{path('app_login')}}">Se connecter</a>
 				</li>
@@ -103,6 +108,10 @@
 					<a class="nav-link " href="{{path('app_register')}}">S'inscrire</a>
 				</li>
 				{% else %}
+
+				<li class="list-unstyled class nav-item active">
+					<a class="nav-link" href="{{path('listepanier')}}">Mes Commande <span class="sr-only"></span></a>
+				</li>
 
 				<li class="nav-item list-unstyled class">
 					<a class="nav-link " href="{{path('app_logout')}}"> {{app.user.name}} 	
@@ -126,9 +135,7 @@
 	</h2>
 	{% endfor %}
 
-<footer>
-	
-</footer>
+
 
 </body>
 
