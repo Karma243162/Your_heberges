@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{parent()}}Panier
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold text-dark">
+			Panier</h1>
+
+		{% set total = 0 %}
+
+
+		{% if app.user.panier.ajouters | length > 0 %}
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-8 bg-white p-4 m-0 text-primary">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr class="fw-bold text-primary">
+									<th scope="col" class="col-10">Article</th>
+									<th scope="col">option</th>
+									<th scope="col">quantite</th>
+									<th scope="col">prix</th>
+
+								</tr>
+							</thead>
+							<tbody>
+
+								{% for p in app.user.panier.ajouters %}
+									<tr class="{{ cycle(['table-primary', 'table-secondary'], loop.index0) }}">
+										<td>
+											{{ p.produit.nom | capitalize }}
+										</td>
+										<td>
+											<a href="{{path('suppArticlePanier',{'id':p.id})}}" style="text-decoration:none;">Supprimer</a>
+										</td>
+										<td>
+											<a href="{{path('moinsQte',{'id':p.id})}}" style="text-decoration:none;">
+												<i class="bi bi-dash-square"></i>
+											</a>
+											{{p.qte}}
+											<a href="{{path('ajoutQte',{'id':p.id})}}">
+												<i class="bi bi-plus-square"></i>
+											</a>
+										</td>
+										<td>
+											{{ p.produit.prix | capitalize }}
+										</td>
+									</tr>
+									{% set total = total + p.produit.prix * p.qte %}
+								{% endfor %}
+
+							</tbody>
+						</table>
+						<p>Le total est de :
+							{{total}}€</p>
+					</div>
+					<a href="{{path('suppPanier')}}">Vider le panier</a>
+				</div>
+			</div>
+		{% else %}
+			<p class="text-center">Le panier est vide allez le remplir
+				<a href="{{path('index')}}">ici
+					<i class="bi bi-emoji-smile"></i>
+				</a>
+			</p>
+		{% endif %}
+
+
+	</div>
+
+
+{% endblock %}
