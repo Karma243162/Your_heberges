@@ -30,12 +30,16 @@
 									<td>{{ contact.sujet | capitalize }}</td>
                                     <td>{{ contact.email | lower }}</td>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                   <td>{{ contact.dateEnvoie | date("d-m-Y à H:i:s") }} <a href="{{path('reponse-contact', {'id':contact.id})}}"><button>Repondre</button></a>
 										<a href="{{path('suppContact',{'id':contact.id})}}"><button>rejeter</button></a></td> 
 								
 =======
                                     <td>{{ contact.dateEnvoie | date("d-m-Y à H:i:s") }}</td>
 >>>>>>> page web heberge
+=======
+                                    <td>{{ contact.dateEnvoie | date("d-m-Y à H:i:s") }}</td>
+>>>>>>> 176c0d76db21da175b8eb3e636f8f8ba278e5040
 								</tr>
 							{% endfor %}
 						</tbody>
