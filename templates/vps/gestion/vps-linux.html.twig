@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+
+{% endblock %}
+
+{% block body %}
+
+
+<h1 class="text-center">ADMIN VPS LINUX</h1>
+
+<h3 style="margin-top:150px">Vos hebergement web dispo : </h3>
+<a href="{{path('Ajout-Vps')}}"class="m-1 text-center btn btn-success">Ajouter un hebergement web</a>
+<div style="margin-top:150px" id="container-web-card">
+  
+    {% for i in vpsLinux %}
+    
+    <div class="card " style="width: 20rem; height: 240px; margin-bottom: 150px; ">
+        <div id="card-web d-flex flex-wrap" class="card-body">
+          <h5 class="text-center card-title">Option {{i.name}}</h5>
+          <ul >
+            <li>Prix : {{i.prix}}0 €</li>
+            <li>{{i.processeur}}</li>
+            <li>Stockage : {{i.stockage}} GO (SSD)</li>
+            <li>Livraison : 60s</li>
+            <li>En stock : 5</li>
+          </ul>
+     
+             </div>
+             <a href="{{path('gestion-vps-modif',{id:i.id})}}" class="text-center btn btn-primary">Modifier</a>
+             <a href="{{path('suppVps',{'id':i.id})}}" class=" text-center btn btn-danger">supprimer</a>
+             
+            </div>
+       
+    
+    {% endfor %}
+       </div>
+
+{% endblock %}
+

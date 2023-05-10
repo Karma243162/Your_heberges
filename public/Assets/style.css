@@ -8,7 +8,14 @@
     font-family: sans-serif;
     text-transform: uppercase;
     font-size: 14px;
+    transition: ease 0.5s;
 }
+
+#nav a:hover {
+    color: #ec2079;
+}
+
+
 
 #first-page {
      margin-top: 80px;
@@ -102,5 +109,7 @@ transition: ease 0.5s;
 }
 
 #icon-page-web li img {
-    max-width: 150px;
+    max-width: 250px;
 }
+
+
