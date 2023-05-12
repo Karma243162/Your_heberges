@@ -26,6 +26,17 @@ class WebController extends AbstractController
         ]);
     }
 
+    #[Route('/web-hebergement-page/{id}', name: 'web-hebergement-page')]
+    public function webPage(EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        $id = $request->get('id');
+        $repoWebHeberge = $entityManagerInterface->getRepository(Webheberge::class);
+        $webHeberge = $repoWebHeberge->find($id); 
+        return $this->render('hebergement/liste-web.html.twig', [
+            'webHebergeListe' => $webHeberge,
+        ]);
+    }
+
 
     #[Route('/cloud-hebergement', name: 'cloud-hebergement')]
     public function cloud(): Response

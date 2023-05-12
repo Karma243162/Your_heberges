@@ -109,9 +109,32 @@
 				</li>
 				{% else %}
 
-				<li class="list-unstyled class nav-item active">
-					<a class="nav-link" href="{{path('listepanier')}}">Mon Panier <span class="sr-only"></span></a>
+			
+
+
+				<li class="nav-item dropdown list-unstyled class">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="bi bi-gear"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="{{path('app_user')}}">Profile</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{path('liste-contacts')}}">Mes Commande</a>
+						</li>
+					   
+						<li>
+							<a class="dropdown-item" href="{{path('listepanier')}}">Panier</a>
+						</li>
+
+						
+
+					</ul>
 				</li>
+
+
+
 
 				<li class="nav-item list-unstyled class">
 					<a class="nav-link " href="{{path('app_logout')}}"> {{app.user.name}} 	

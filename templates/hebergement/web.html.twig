@@ -31,7 +31,7 @@
           <li>En stock : {{i.stock}}</li>
       </ul>
       <a href="{{path('ajoutPanier', {'id':i.id, 'page':'web-hebergement'})}}" class="text-center btn btn-primary">Panier</a>
-      <a href="#" class="text-center btn btn-primary">Acheté</a>
+      <a href="{{path('web-hebergement-page', {'id':i.id})}}" class="text-center btn btn-primary">Acheté</a>
          </div>
         </div>
    
