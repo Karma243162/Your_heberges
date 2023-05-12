@@ -56,4 +56,63 @@ class PanierController extends AbstractController
       return $this->redirectToRoute($page);
     
     } 
+
+    #[Route('/supp-panier', name: 'suppPanier')]
+    public function supppanier(EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        
+        $webheberge = $entityManagerInterface->getRepository(Ajouts::class);
+        $panier = $webheberge->findAll();
+        foreach($panier as $e)
+        {
+            $entityManagerInterface->remove($e); 
+        }
+
+        
+        $entityManagerInterface->flush();
+        return $this->redirectToRoute("listepanier");
+
+    }
+
+    #[Route('/ajout-qte', name: 'ajoutQte')]
+    public function ajoutqte(EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        $id = $request->get('id');
+        $webheberge = $entityManagerInterface->getRepository(Ajouts::class);
+        $panier = $webheberge->find($id);
+        $qte =$panier->getQte();
+        $panier->setQte($qte+1);
+        $entityManagerInterface->persist($panier);
+        $entityManagerInterface->flush();
+        return $this->redirectToRoute("listepanier");
+
+    }
+
+    #[Route('/moins-qte', name: 'moinsQte')]
+    public function moinsqte(EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        $id = $request->get('id');
+        $webheberge = $entityManagerInterface->getRepository(Ajouts::class);
+        $panier = $webheberge->find($id);
+        $qte =$panier->getQte();
+        if ($qte>1) {
+            $panier->setQte($qte-1);
+        }
+        $entityManagerInterface->persist($panier);
+        $entityManagerInterface->flush();
+        return $this->redirectToRoute("listepanier");
+
+    }
+
+    #[Route('/supp-article-panier', name: 'suppArticlePanier')]
+    public function suppunarticle(EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        $id = $request->get('id');
+        $webheberge = $entityManagerInterface->getRepository(Webheberge::class);
+        $panier = $webheberge->find($id);
+        $entityManagerInterface->remove($panier); 
+        $entityManagerInterface->flush();
+        return $this->redirectToRoute("listepanier");
+
+    }
 }

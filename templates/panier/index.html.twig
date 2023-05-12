@@ -1,47 +1,73 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{parent()}}Panier{% endblock %}
+{% block title %}
+	{{parent()}}Panier
+{% endblock %}
 
 {% block body %}
+	<div class="container-fluid">
+		<h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold text-dark">
+			Votre Panier</h1>
 
-    <h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">Vos Commande</h1>
-  
- 
-
-
-    <table>
-      <thead>
-        <tr>
-          <th>Produit</th>
-          <th>Prix</th>
-          <th>Quantité</th>
-          <th>Total</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for item in app.user.panier.ajouts %}
-          <tr>
-            <td>{{ item.webheberge.name }}</td>
-            <td>{{ item.webheberge.price }} €</td>
-            <td>
-            {#   <a href="{{ path('cart_remove', {id: item.id}) }}">Supprimer</a> #}
-            </td>
-          </tr>
-        {% endfor %}
-        <tr>
-          <td colspan="3">Total :</td>
-   
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
-  
- 
+		{% set total = 0 %}
 
 
+		{% if app.user.panier.ajouts | length > 0 %}
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-8 bg-white p-4 m-0 text-primary">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr class="fw-bold text-primary">
+									<th scope="col" class="col-10">Nom</th>
+									<th scope="col">quantite</th>
+									<th scope="col">prix</th>
+
+								</tr>
+							</thead>
+							<tbody>
+
+								{% for p in app.user.panier.ajouts %}
+									<tr class="{{ cycle(['table-primary', 'table-secondary'], loop.index0) }}">
+										<td>
+											{{ p.webheberge.name | capitalize }}
+										</td>
+									
+										<td>
+											<a href="{{path('moinsQte',{'id':p.id})}}" style="text-decoration:none;">
+												<i class="bi bi-dash-square"></i>
+											</a>
+											{{p.qte}}
+											<a href="{{path('ajoutQte',{'id':p.id})}}">
+												<i class="bi bi-plus-square"></i>
+											</a>
+										</td>
+										<td>
+											{{ p.webheberge.price | capitalize }} 
+										</td>
+									</tr>
+									{% set total = total + p.webheberge.price * p.qte %}
+								{% endfor %}
+
+							</tbody>
+						</table>
+						<p>Le total est de :
+							{{total}} €</p>
+					</div>
+					<a href="{{path('suppPanier')}}">Vider le panier</a>
+					<a class="m-3" href="#">Passer Commande</a>
+				</div>
+			</div>
+		{% else %}
+			<p class="text-center">Le panier est vide allez le remplir
+				<a href="{{path('index')}}">ici
+			
+				</a>
+			</p>
+		{% endif %}
 
 
-   
+	</div>
+
+
 {% endblock %}

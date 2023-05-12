@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Domaine Dispo
+	{{parent()}}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center text-primary mt-4 pt-4 display-5 fw-bold">Nom de Domaine Disponible
+	</h1>
+	<p class="text-center text-primary mt-4 pt-4 ">Tapez votre nom de domaine souhaité dans la barre de recherche et découvrez instantanément s'il est disponible !
+	</p>
+
+	<div style="margin-left: 25%;" class="input-group mb-3">
+		<input type="text" class="form-control " placeholder="Entrer votre nom de domaine souhaité (exemple.com)" aria-label="Entrer votre nom de domaine souhaité" aria-describedby="basic-addon2">
+		<div class="input-group-append w-50 p-2">
+			<button class="btn btn-outline-secondary" type="button">Chercher</button>
+		</div>
+	</div>
+
+	<ul id="card-domaine">
+		<li>
+			<h3 class="text-white text-center mt-2">.fr</h3>
+			<p class="text-white text-center mt-2">7.99 €</p>
+		</li>
+		<li>
+			<h3 class="text-white text-center mt-2">.com</h3>
+			<p class="text-white text-center mt-2">10.99 €</p>
+		</li>
+		<li>
+			<h3 class="text-white text-center mt-2">.shop</h3>
+			<p class="text-white text-center mt-2">1.99 €</p>
+		</li>
+		<li>
+			<h3 class="text-white text-center mt-2">.pro</h3>
+			<p class="text-white text-center mt-2">5.99 €</p>
+		</li>
+		<li>
+			<h3 class="text-white text-center mt-2">.online</h3>
+			<p class="text-white text-center mt-2">0.99 e</p>
+		</li>
+	</ul>
+  <p class="text-center text-primary mt-4 pt-4 ">Une protection gratuite de la vie privée est incluse avec chaque nom de domaine éligible</p>
+  <p class="text-center text-primary mt-4 pt-4 ">Vous avez déjà un nom de domaine ?  <a style="color: #e45492;" href="#">Transférez-le </p></a> 
+
+
+
+
+
+
+
+
+  {% endblock %}

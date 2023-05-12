@@ -59,7 +59,7 @@
 						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
 							aria-haspopup="true" aria-expanded="false">Nom de domaine</a>
 						<div class="rounded dropdown-menu">
-							<a class="dropdown-item" href="{{'listepanier'}}">Domaine Disponible</a>
+							<a class="dropdown-item" href="{{'domaine'}}">Domaine Disponible</a>
 							<a class="dropdown-item" href="#">Transfert de nom de domaine </a>
 
 						</div>
@@ -74,7 +74,7 @@
 				</ul>
 				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_MOD') %}
 			
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown list-unstyled class">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Administration
                                     </a>
@@ -104,13 +104,13 @@
 				<li class="nav-item list-unstyled class">
 					<a class="nav-link " href="{{path('app_login')}}">Se connecter</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item list-unstyled class" >
 					<a class="nav-link " href="{{path('app_register')}}">S'inscrire</a>
 				</li>
 				{% else %}
 
 				<li class="list-unstyled class nav-item active">
-					<a class="nav-link" href="{{path('listepanier')}}">Mes Commande <span class="sr-only"></span></a>
+					<a class="nav-link" href="{{path('listepanier')}}">Mon Panier <span class="sr-only"></span></a>
 				</li>
 
 				<li class="nav-item list-unstyled class">

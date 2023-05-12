@@ -140,14 +140,14 @@ class Webheberge
         return $this;
     }
 
-    public function getProc(): ?int
+    public function getProcesseur(): ?string
     {
-        return $this->proc;
+        return $this->processeur;
     }
 
-    public function setProc(int $proc): self
+    public function setProcesseur(string $processeur): self
     {
-        $this->proc = $proc;
+        $this->processeur = $processeur;
 
         return $this;
     }
@@ -193,4 +193,7 @@ class Webheberge
 
         return $this;
     }
+
+
+    
 }
