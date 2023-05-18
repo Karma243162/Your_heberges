@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Avis;
+use App\Entity\User;
 use App\Form\AvisType;
 
 class AvisController extends AbstractController

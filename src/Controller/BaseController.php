@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\User;
+use App\Entity\Avis;
 
 class BaseController extends AbstractController
 {
@@ -14,8 +15,11 @@ class BaseController extends AbstractController
     public function index(EntityManagerInterface $emi): Response { 
     $repoUser =  $emi->getRepository(User::class);
     $user = $repoUser->findAll(); 
+    $repoAvis = $emi->getRepository(Avis::class);
+    $avis = $repoAvis->findAll(); 
         return $this->render('base/index.html.twig', [ // render est la fonction qui va chercher le fichier TWIG pour l’afficher
             'user' => $user,
+            'avis' => $avis,
         ]);
     }
 }

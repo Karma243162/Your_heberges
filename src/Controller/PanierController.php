@@ -38,6 +38,7 @@ class PanierController extends AbstractController
             $this->getUser()->setPanier($panier);
         }
         $ajouts = new Ajouts();
+        $this->addFlash('notice','Article dans le panier');
         $ajouts->setQte(1);
         $webheberge = $entityManagerInterface->getRepository(Webheberge::Class)->find($id);
         if ($webheberge!=null) {

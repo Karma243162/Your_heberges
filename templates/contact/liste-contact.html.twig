@@ -16,6 +16,7 @@
 					<table class="table table-hover">
 						<thead>
 							<tr class="fw-bold text-primary">
+								<th scope="col">ID</th>
 								<th scope="col">Nom</th>
 								<th scope="col">Sujet</th>
                                 <th scope="col">Email</th>
@@ -26,6 +27,7 @@
 							
 							{% for contact in contacts %}
 								<tr class="{{ cycle(['table-primary', 'table-secondary'], loop.index0) }}">
+									<td>{{ contact.id | capitalize }}</td>
 									<td>{{ contact.nom | capitalize }}</td>
 									<td>{{ contact.sujet | capitalize }}</td>
                                     <td>{{ contact.email | lower }}</td>
