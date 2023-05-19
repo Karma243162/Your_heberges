@@ -17,6 +17,7 @@ class BaseController extends AbstractController
     $user = $repoUser->findAll(); 
     $repoAvis = $emi->getRepository(Avis::class);
     $avis = $repoAvis->findAll(); 
+    shuffle($avis);
         return $this->render('base/index.html.twig', [ // render est la fonction qui va chercher le fichier TWIG pour l’afficher
             'user' => $user,
             'avis' => $avis,
