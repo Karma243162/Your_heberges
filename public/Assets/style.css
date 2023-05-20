@@ -118,7 +118,19 @@ transition: ease 0.5s;
     width: 135px;
     height: 100px;
     list-style:none;
-    background-color: #da2372;
+    background-color: #f84f98;
+    transition: ease 0.5s;
+}
+
+#card-domaine li:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    border: rgb(102, 101, 101) solid 2px;
+    border-radius: 5px;
+    width: 135px;
+    height: 100px;
+    list-style:none;
+    background-color: #f84f98;
 }
 
 

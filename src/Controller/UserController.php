@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Entity\User;
+use Symfony\Component\Security\Core\Security;
 use App\Form\ListeUsersType;
 
 class UserController extends AbstractController
@@ -30,15 +31,14 @@ class UserController extends AbstractController
         ]);
     }
 
-  /*  #[Route('/profile-user/{id}', name: 'app_user_profile')]
+    #[Route('/profile-user/', name: 'app_user_profile')]
     public function Profile(EntityManagerInterface $emi, UserRepository $userRepository, Request $request): Response
     {
-        $id = $request->get('id');
-        $webheberge = $entityManagerInterface->getRepository(User::Class)->find($id);
-        $user = $repoUser->findAll(); 
+         $repoUser =  $emi->getRepository(User::class);
+          $user = $repoUser->findAll(); 
         return $this->render('user/profile.html.twig', [
             'user' => $user,
         ]);
-    }*/
+    }
 
 }

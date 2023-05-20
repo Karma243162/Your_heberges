@@ -19,16 +19,14 @@ class AvisType extends AbstractType
         $builder
         ->add('name', TextType::class, ['attr' => ['class'=> 'form-control'], 'label_attr' => ['class'=> 'fw-bold']])
         ->add('email', EmailType::class, ['attr' => ['class'=> 'form-control'], 'label_attr' => ['class'=> 'fw-bold']])
-        ->add('note', ChoiceType::class, [
+       ->add('note', ChoiceType::class, [
             'choices'  => [
-                '⭐' => '1',
-                '⭐⭐' => '2',
-                '⭐⭐⭐' => '3',
-                '⭐⭐⭐⭐' => '4',
-                '⭐⭐⭐⭐⭐' => '5',
-            ],'attr' => ['class'=> 'form-control'], 'label_attr' => ['class'=> 'fw-bold'],
-            'expanded' => true,
-            'multiple' => false,
+                '1 / 5' => 1,
+                '2 / 5' => 2,
+                '3 / 5' => 3,
+                '4 / 5' => 4,
+                '5 / 5' => 5,
+            ],
         ])
         ->add('commentaire', TextareaType::class, ['attr' => ['class'=> 'form-control', 'rows'=>'7', 'cols' => '7'], 'label_attr' => ['class'=> 'fw-bold']])
         ->add('envoyer', SubmitType::class, ['attr' => ['class'=> 'btn bg-primary text-white m-4' ], 'row_attr' => ['class' => 'text-center'],])
