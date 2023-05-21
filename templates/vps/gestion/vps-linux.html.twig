@@ -14,21 +14,25 @@
 
 <h1 class="text-center">ADMIN VPS LINUX</h1>
 
-<h3 style="margin-top:150px">Vos hebergement web dispo : </h3>
-<a href="{{path('Ajout-Vps')}}"class="m-1 text-center btn btn-success">Ajouter un hebergement web</a>
+<h3 style="margin-top:150px">Vos VPS Linux dispo : </h3>
+<a href="{{path('Ajout-Vps')}}"class="m-1 text-center btn btn-success">Ajouter un Vps Linux</a>
 <div style="margin-top:150px" id="container-web-card">
   
     {% for i in vpsLinux %}
     
-    <div class="card " style="width: 20rem; height: 240px; margin-bottom: 150px; ">
+    <div class="card " style="width: 20rem; height: 300px; margin-bottom: 150px; ">
         <div id="card-web d-flex flex-wrap" class="card-body">
           <h5 class="text-center card-title">Option {{i.name}}</h5>
           <ul >
             <li>Prix : {{i.prix}}0 €</li>
             <li>{{i.processeur}}</li>
             <li>Stockage : {{i.stockage}} GO (SSD)</li>
+            <li>Ram :4 GO DDR4 de RAM 2666 MHz</li>
+            <li>IP : IPV4 + IPV6 Dédié</li>
+            <li>100 Mbit/s bande passante</li>
             <li>Livraison : 60s</li>
             <li>En stock : 5</li>
+            <li>Localisation : France</li>
           </ul>
      
              </div>

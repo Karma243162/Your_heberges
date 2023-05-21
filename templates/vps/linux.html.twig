@@ -21,17 +21,22 @@
 <div  id="container-web-card">
 {% for i in vps %}
 
-<div class="card " style="width: 20rem; height: 240px; margin-bottom: 150px; ">
+<div class="card " style="width: 20rem; height: 370px; margin-bottom: 150px; ">
     <div id="card-web d-flex flex-wrap" class="card-body">
       <h5 class="text-center card-title">Option {{i.name}}</h5>
       <ul >
-          <li>Prix : {{i.prix}}0 €</li>
-          <li>{{i.processeur}}</li>
-          <li>Stockage : {{i.stockage}} GO (SSD)</li>
-          <li>Livraison : 60s</li>
-          <li>En stock : 5</li>
+        <li>Prix : {{i.prix}}0 €</li>
+        <li>{{i.processeur}}</li>
+        <li>Stockage : {{i.stockage}} GO (SSD)</li>
+        <li>Ram :4 GO DDR4 de RAM 2666 MHz</li>
+        <li>IP : IPV4 + IPV6 Dédié</li>
+        <li>100 Mbit/s bande passante</li>
+        <li>Livraison : 60s</li>
+        <li>En stock : 5</li>
+        <li>Localisation : France</li>
       </ul>
-      <a href="{{path('ajoutPanier', {'id':i.id})}}" class="text-center btn btn-primary">Commander</a>
+      <a href="{{path('ajoutPanier', {'id':i.id})}}" class="text-center btn btn-primary">Panier</a>
+      <a href="{{path('ajoutPanier', {'id':i.id})}}" class="text-center btn btn-primary">Acheter</a>
          </div>
         </div>
    
