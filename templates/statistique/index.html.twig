@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StatistiqueController!{% endblock %}
+
+{% block body %}
+<h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold text-dark">Statistique</h1>
+
+<div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+        type: 'bar',
+
+      data: {
+        labels: ['Utilisateur', 'vendu', 'avis'],
+        datasets: [{
+          label: '# of Votes',
+          data: [{{user|length + 1}}, 5, {{avis|length}}],
+          backgroundColor: [
+              'rgba(255, 99, 55)',
+              'rgba(100, 255, 20)',
+              'rgba(255, 0, 50)',
+          ]
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+  
+{% endblock %}
