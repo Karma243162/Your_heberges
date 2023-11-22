@@ -7,19 +7,33 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-
+    <h1 class="text-center">enregistrer Vous </h1>
+    <form class="w-50 m-auto" method="post">
         {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.name) }}
-
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        <div class="form-group">
+            {{ form_label(registrationForm.email) }}
+            {{ form_widget(registrationForm.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email'} }) }}
+            <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</small>
+        </div>
+    
+        <div class="form-group mt-2">
+            {{ form_label(registrationForm.name, 'Prénom') }}
+            {{ form_widget(registrationForm.name, { 'attr': {'class': 'form-control', 'placeholder': 'Entrer votre prénom'} }) }}
+        </div>
+    
+        <div class="form-group mt-2">
+            {{ form_label(registrationForm.plainPassword, "Mot de passe") }}
+            {{ form_widget(registrationForm.plainPassword, { 'attr': {'class': 'form-control', 'placeholder': 'Password'} }) }}
+        </div>
+    
+        <div class="form-group form-check mt-1">
+            {{ form_widget(registrationForm.agreeTerms, { 'attr': {'class': 'form-check-input'} }) }}
+            {{ form_label(registrationForm.agreeTerms,'Accepter les conditions', { 'label_attr': {'class': 'form-check-label'} }) }}
+        </div>
+    
+        <button style="background-color: #ec2079; color: #fff;" type="submit" class="btn mt-2">S'enregistrer</button>
+    
+        {{ form_end(registrationForm) }}
+    </form>
+    
 {% endblock %}

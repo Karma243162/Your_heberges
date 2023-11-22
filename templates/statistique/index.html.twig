@@ -20,21 +20,17 @@
       data: {
         labels: ['Utilisateur', 'vendu', 'avis'],
         datasets: [{
-          label: '# of Votes',
+          label: '# Statistique', 
           data: [{{user|length + 1}}, 5, {{avis|length}}],
           backgroundColor: [
-              'rgba(255, 99, 55)',
-              'rgba(100, 255, 20)',
-              'rgba(255, 0, 50)',
+              'rgba(255, 99, 55, 0.5)',
+              'rgba(100, 255, 20, 0.5)',
+              'rgba(255, 0, 50, 0.5)',
           ]
         }]
       },
       options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
+        indexAxis: 'y',
       }
     });
   </script>
