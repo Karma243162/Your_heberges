@@ -43,6 +43,11 @@
 		</div>
 	</div>
 
+  {% block javascripts %}
+  {{parent()}}
+  <script type="module" src="{{asset("Scripts/script.js")}}"></script>
+   {% endblock %} 
+
 {% endblock %} 
  
  

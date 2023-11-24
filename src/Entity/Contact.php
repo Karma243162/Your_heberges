@@ -5,6 +5,16 @@ namespace App\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+
+#[ApiResource(
+    normalizationContext: ['groups' => ['contact']],
+    itemOperations: ['GET'],
+    collectionOperations: ['GET']
+)]
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
@@ -12,17 +22,19 @@ class Contact
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[groups(["contact"])]
     private ?int $id = null;
 
+    #[groups(["contact"])]
     #[ORM\Column(length: 30)]
     private ?string $nom = null;
-
+    #[groups(["contact"])]
     #[ORM\Column(length: 100)]
     private ?string $sujet = null;
-
+    #[groups(["contact"])]
     #[ORM\Column(length: 100)]
     private ?string $email = null;
-
+    #[groups(["contact"])]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 

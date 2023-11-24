@@ -6,6 +6,13 @@ use App\Repository\PanierRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\MetaData\ApiResource;
+use ApiPlatform\Doctrine\Orm\Filter\ExistsFilter;
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Metadata\ApiFilter;
+
+
+#[ApiResource()]
 
 #[ORM\Entity(repositoryClass: PanierRepository::class)]
 class Panier
